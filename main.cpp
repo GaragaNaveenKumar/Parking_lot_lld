@@ -7,10 +7,18 @@
 using namespace std;
 
 int main(){
-    cout<<1<<endl;
+    
 
     ParkingLot* p=new ParkingLot(2,2,2);
+    
+
+    Vehicle* v1=new Car("C0001","john");
+    ParkingSpot* spot=p->findAvailableSpot(v1);
+    Ticket* t1=spot->parkVehicle(v1);
+    t1->display();
+
     p->displayStatus();
+
 
     
     return 0;

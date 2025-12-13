@@ -18,6 +18,8 @@ class Ticket{
         Vehicle* getVehicle() const;
         ParkingSpot* getSpot() const;
 
+        void display() const;
+
         virtual ~Ticket()=default;
 
 

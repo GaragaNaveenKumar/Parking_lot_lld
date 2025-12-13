@@ -14,7 +14,7 @@ Vehicle* ParkingSpot::getVehicle() const {return vehicle; };
 Ticket* ParkingSpot::parkVehicle(Vehicle* v){
     vehicle=v;
     available=false;
-    return nullptr;
+    
 
     return new Ticket(vehicle,this);
 
