@@ -1,31 +1,52 @@
-#ifndef VECHICLE_HPP
-#define VECHICLE_HPP
+#ifndef VEHICLE_HPP
+#define VEHICLE_HPP
 
 #include<string>
 
 enum class VehicleType{
-    CAR,
-    MOTORCYCLE,
-    TRUCK,
-    BUS
+    COMPACT=0,
+    STANDARD=1,
+    HEAVY=2
 };
-
 
 class Vehicle{
     private:
-        std::string licensePlate;
-        VehicleType type;
-        std::string color;
-
+        std::string licenseNumber;
+        std::string ownerName;
     public:
-        Vehicle(std::string licensePlate,VehicleType type,std::string color);
+        Vehicle(const std::string license,const std::string owner):licenseNumber(license
+        ),ownerName(owner){};
+        std::string getLicenseNumber() const{return licenseNumber;};
+        std::string getOwnerName() const {return ownerName;};
+        virtual VehicleType getType()const=0;
 
-        std::string getLicensePlate()const;
-        VehicleType getType() const;
-        std::string getColor() const;
-        void displayInfo() const;
+        virtual ~Vehicle()=default;
+};
 
+class Car:public Vehicle{
+    public:
+        Car(const std::string license,const std::string owner):Vehicle(license,owner){};
+        VehicleType getType() const override {return VehicleType::STANDARD;};
+
+        
 
 };
+
+class Bus:public Vehicle{
+    public:
+        Bus(const std::string license,const std::string owner):Vehicle(license,owner){};
+
+        VehicleType getType() const override { return VehicleType::HEAVY; };
+
+};
+class MotorCycle:public Vehicle{
+    public:
+        MotorCycle(const std::string license,const std::string owner):Vehicle(license,owner){};
+
+        VehicleType getType() const override { return VehicleType::COMPACT; };
+};
+
+
+
 
 #endif
