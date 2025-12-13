@@ -6,7 +6,7 @@
 
 
 
-ParkingLot::ParkingLot(const int compactType,const int standardType,const int heavyType){
+ParkingLot::ParkingLot(int compactType,int standardType,int heavyType){
     int spotNumber=1;
 
     for(int i=0;i<compactType;i++){
@@ -38,8 +38,10 @@ ParkingSpot* ParkingLot::findAvailableSpot(Vehicle* vehicle){
     std::cout<<"Sorry spots are filled"<<std::endl;
     return nullptr;
 }
+//g++ main.cpp ParkingLot.cpp ParkingSpot.cpp Ticket.cpp  -o main
 
-void ParkingLot::displayStatus() const{
+
+void ParkingLot::displayStatus() const {
     for(auto& spot:parkingSpots){
         std::cout<<"SpotNumeber : "<<spot->getSpotNumber()<<std::endl;
         std::cout<<"Spot Status : "<<(!spot->isAvailable()?"Occupied":"Free")<<std::endl;
@@ -51,4 +53,14 @@ void ParkingLot::displayStatus() const{
         std::cout<<std::endl<<std::endl;
         std::cout<<"_____________________________________________________________________"<<std::endl<<std::endl;
     }
-}
+    return;
+};
+
+
+
+
+ParkingLot::~ParkingLot() {
+    for (auto spot : parkingSpots)
+        delete spot;
+};
+

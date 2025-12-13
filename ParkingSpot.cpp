@@ -1,4 +1,5 @@
 #include "ParkingSpot.hpp"
+#include "Ticket.hpp"
 #include<iostream>
 #include<string>
 
@@ -13,6 +14,7 @@ Vehicle* ParkingSpot::getVehicle() const {return vehicle; };
 Ticket* ParkingSpot::parkVehicle(Vehicle* v){
     vehicle=v;
     available=false;
+    return nullptr;
 
     return new Ticket(vehicle,this);
 

@@ -6,7 +6,7 @@
 #include<vector>
 
 
-#include "ParkingLot.hpp"
+#include "ParkingSpot.hpp"
 #include "Vehicle.hpp"
 #include "Ticket.hpp"
 
@@ -14,15 +14,16 @@ class ParkingLot{
     private:
         std::vector<ParkingSpot*> parkingSpots;
     public:
-        ParkingLot(const int compactType,const int standardType,const int heavyType);
+        ParkingLot()=default;
+        ParkingLot(int compactType,int standardType,int heavyType);
 
-        ParkingSpot* findAvailableSpot(Vehicle* Vehicle);
+        ParkingSpot* findAvailableSpot(Vehicle* vehicle);
 
 
         void displayStatus() const;
 
 
-        virtual ~ParkingLot()=default;
+        ~ParkingLot();
         
 };
 

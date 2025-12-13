@@ -2,7 +2,9 @@
 #define PARKING_SPOT_HPP
 
 #include "Vehicle.hpp"
-#include "Ticket.hpp"
+
+
+class Ticket;
 
 enum class SpotType{
     COMPACT=0,
