@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 
-ParkingSpot::ParkingSpot(const int number,SpotType type):spotNumber(number),type(type){};
+ParkingSpot::ParkingSpot(const int number,SpotType type,bool availability):spotNumber(number),type(type),available(availability){};
 
 int ParkingSpot::getSpotNumber() const { return spotNumber ;};
 SpotType ParkingSpot::getType() const { return type; };
@@ -10,11 +10,11 @@ bool ParkingSpot::isAvailable() const { return available; };
 Vehicle* ParkingSpot::getVehicle() const {return vehicle; };
 
 
-void ParkingSpot::parkVehicle(Vehicle* v){
+Ticket* ParkingSpot::parkVehicle(Vehicle* v){
     vehicle=v;
     available=false;
 
-    return;
+    return new Ticket(vehicle,this);
 
 };
 

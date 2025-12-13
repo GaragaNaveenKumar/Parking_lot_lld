@@ -2,11 +2,13 @@
 #define PARKING_SPOT_HPP
 
 #include "Vehicle.hpp"
+#include "Ticket.hpp"
 
 enum class SpotType{
-    COMPACT,
-    REGULAR,
-    LARGE
+    COMPACT=0,
+    STANDARD=1,
+    HEAVY=2
+    
 };
 
 
@@ -18,14 +20,14 @@ class ParkingSpot{
         bool available;
 
     public:
-        ParkingSpot(const int spotNumber,SpotType type);
+        ParkingSpot(const int spotNumber,SpotType type,bool availability);
 
         int getSpotNumber() const;
         SpotType getType() const;
         Vehicle* getVehicle() const;
         bool isAvailable() const;
 
-        void parkVehicle(Vehicle* v);
+        Ticket* parkVehicle(Vehicle* v);
         void unParkVehicle();
         void display();
 
