@@ -3,6 +3,7 @@
 #include "ParkingSpot.hpp"
 #include "Vehicle.hpp"
 #include "Ticket.hpp"
+#include "Payment.hpp"
 
 using namespace std;
 
@@ -16,6 +17,8 @@ int main(){
     ParkingSpot* spot=p->findAvailableSpot(v1);
     Ticket* t1=spot->parkVehicle(v1);
     t1->display();
+    CardPayment cp;
+    cp.checkoutPayment(t1);
 
     p->displayStatus();
 
